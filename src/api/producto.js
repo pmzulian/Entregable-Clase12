@@ -51,4 +51,4 @@ nuevosProductos.guardar({
 
 // export default GenerarProductos;
 
-module.exports = GenerarProductos;
+module.exports = new GenerarProductos;

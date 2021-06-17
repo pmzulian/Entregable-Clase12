@@ -1,4 +1,4 @@
-class GenerarProductos {
+class Producto {
   constructor() {
     this.productos = [];
   }
@@ -25,7 +25,7 @@ class GenerarProductos {
   }
 }
 
-const nuevosProductos = new GenerarProductos();
+const nuevosProductos = new Producto();
 
 nuevosProductos.guardar({
   id: nuevosProductos.getId(),
@@ -51,4 +51,4 @@ nuevosProductos.guardar({
 
 // export default GenerarProductos;
 
-module.exports = new GenerarProductos;
+module.exports = new Producto();

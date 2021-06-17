@@ -2,9 +2,9 @@
   "name": "entregable-clase12",
   "version": "1.0.0",
   "description": "Entregable Clase 12 - Websocket Parte 1",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon ./src/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,5 +1,4 @@
 const express = require("express");
-const crearProd = require("./api/producto.js");
 const handlebars = require("express-handlebars");
 
 const app = express();
@@ -7,7 +6,7 @@ const app = express();
 const puerto = 8080;
 
 //? No sé si irá en este archivo
-const nuevosProductos = new crearProd();
+const productos = require("./api/producto.js");
 
 //====================================================================
 //* Para añadir Socket.io
@@ -58,11 +57,11 @@ app.set("views", __dirname + "/views");
 io.on("connection", async (socket) => {
   console.log("Nuevo usuario conectado");
   /* Envio los mensajes al cliente que se conectó */
-  socket.emit("productos", nuevosProductos.listarTodos());
+  socket.emit("productos", productos.listarTodos());
 
   /* Escucho los mensajes enviado por el cliente y se los propago a todos */
   socket.on('update', data => {
-      io.sockets.emit('productos', nuevosProductos.listarTodos())
+      io.sockets.emit("productos", productos.listarTodos());
   });
 });
 

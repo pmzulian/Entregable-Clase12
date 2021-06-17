@@ -1,20 +1,20 @@
 const express = require("express");
 const router = express.Router();
 
-const nuevosProductos = require("../api/producto");
+const productos = require("../api/producto");
 
 //=====================================================================
 router.post("/productos/guardar", (req, res) => {
-  nuevosProductos.guardar({
+  productos.guardar({
     ...req.body,
-    id: nuevosProductos.getId(),
+    id: productos.getId(),
   });
-  // res.send(req.body);
-  res.redirect("/productos/vista");
+  res.send(req.body);
+  //res.redirect("/productos/vista");
 });
 
 router.get("/productos/listar", (req, res) => {
-  const todos = nuevosProductos.listarTodos();
+  const todos = productos.listarTodos();
   if (todos.length > 0) {
     res.send(todos);
   } else {
@@ -23,7 +23,7 @@ router.get("/productos/listar", (req, res) => {
 });
 
 router.get("/productos/listar/:id", (req, res) => {
-  let found = nuevosProductos.listarIndividual(req.params.id);
+  let found = productos.listarIndividual(req.params.id);
   console.log(found);
   if (found) {
     res.send(found);
@@ -38,15 +38,15 @@ router.put("/productos/actualizar/:id", (req, res) => {
   const ubicacion = req.params.id;
   const actualizar = req.body;
 
-  if (ubicacion <= nuevosProductos.productos.length) {
-    nuevosProductos.productos = nuevosProductos.productos.map((p) => {
+  if (ubicacion <= productos.productos.length) {
+    productos.productos = productos.productos.map((p) => {
       if (p.id == ubicacion) {
         p = Object.assign(p, actualizar);
       }
       return p;
     });
     res.json({
-      ...nuevosProductos.productos,
+      ...productos.productos,
     });
   } else {
     res.send("No hay producto con el índice " + ubicacion);
@@ -56,12 +56,12 @@ router.put("/productos/actualizar/:id", (req, res) => {
 router.delete("/productos/borrar/:id", (req, res) => {
   let id = req.params.id;
 
-  let productoBuscado = nuevosProductos.productos.find((p) => {
+  let productoBuscado = productos.productos.find((p) => {
     return p.id == id;
   });
 
   if (productoBuscado) {
-    let borrado = nuevosProductos.borrar(id);
+    let borrado = productos.borrar(id);
 
     res.send(borrado);
   } else {

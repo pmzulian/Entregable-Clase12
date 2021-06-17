@@ -1,0 +1,19 @@
+{{!-- main.hbs --}}
+<h2>Listado de productos cargados</h2>
+
+{{#if listadoExiste}}
+<div class="table-responsive">
+    <table class="table table-dark">
+        <tr><th>Nombre</th><th>Precio</th><th>Foto</th></tr>
+        {{#each sugeridosProd}}
+            <tr>
+                <td>{{this.title}}</td>
+                <td>AR${{this.price}}</td>
+                <td><img src={{this.thumbnail}} alt="" width="50px"></td>
+            </tr>
+        {{/each}}
+    </table>
+{{else}}
+    <h3 class="alert alert-warning">No hay productos en en listado</h3>
+</div>
+{{/if}}

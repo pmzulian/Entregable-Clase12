@@ -1,0 +1,25 @@
+{
+  "name": "entregable-clase12",
+  "version": "1.0.0",
+  "description": "Entregable Clase 12 - Websocket Parte 1",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmzulian/Entregable-Clase12.git"
+  },
+  "author": "Pablo ZULIAN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pmzulian/Entregable-Clase12/issues"
+  },
+  "homepage": "https://github.com/pmzulian/Entregable-Clase12#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "socket.io": "^4.1.2"
+  }
+}

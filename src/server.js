@@ -50,7 +50,7 @@ app.engine(
 app.set("view engine", "hbs");
 
 //Establecemos el directorio donde se encuentran las plantillas
-app.set("views", __dirname + "/views");
+app.set("views", "./views");
 
 //====================================================================
 

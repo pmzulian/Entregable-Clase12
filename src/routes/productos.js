@@ -69,4 +69,9 @@ router.delete("/productos/borrar/:id", (req, res) => {
   }
 });
 
+router.get("/productos/vista", (req, res) => {
+  let prods = productos.listarTodos();
+  res.render("lista.hbs", { productos: prods, hayProductos: prods.length });
+});
+
 module.exports = router;

@@ -1,12 +1,12 @@
 const socket = io.connect();
 
-/* si recibo productos, los muestro usando handlebars */
+/* Si recibo productos, los muestro usando handlebars */
 socket.on("productos", function (productos) {
   console.log("productos socket client");
   document.getElementById("datos").innerHTML = data2TableHBS(productos);
 });
 
-/* obtengo el formulario */
+/* Obtengo el formulario */
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (event) => {
